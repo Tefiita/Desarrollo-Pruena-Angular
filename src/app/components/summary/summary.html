@@ -1,0 +1,90 @@
+<div class="summary-container" *ngIf="summary">
+
+    <div class="tabs">
+        <div class="tab" [class.active]="activeTab === 'Resumen'" (click)="selectTab('Resumen')">
+            Resumen
+        </div>
+        <div class="tab" [class.active]="activeTab === 'Detalles'" (click)="selectTab('Detalles')">
+            Detalles
+        </div>
+    </div>
+
+    <div class="tab-content">
+        <div *ngIf="activeTab === 'Resumen'">
+            <div class="row">
+                <span class="label">Cotización</span>
+                <span class="value">{{ formatDate(summary.price.datetimeLastPrice) }}</span>
+            </div><br>
+            <hr>
+            <div class="row">
+                <span class="label">NOMBRE</span>
+                <span class="value">{{ summary?.info.name }}</span>
+            </div>
+            <div class="row">
+                <span class="label">ABREVIATURA</span>
+                <span class="value">{{ summary?.info.shortName }}</span>
+            </div>
+            <div class="row">
+                <span class="label">PAÍS</span>
+                <span class="value">{{ summary?.info.countryName }}</span>
+            </div>
+            <div class="row">
+                <span class="label">MONEDA</span>
+                <span class="value">{{ summary?.info.currencyName }} ({{ summary?.info.currencySymbol }})</span>
+            </div>
+            
+        </div>
+
+        <div *ngIf="activeTab === 'Detalles'">
+            <div class="row">
+                <span class="label">Cotización</span>
+                <span class="value">{{ formatDate(summary.price.datetimeLastPrice) }}</span>
+            </div><br>
+            <hr>
+            <div class="row">
+                <span class="label">MERCADO</span>
+                <span class="value">{{ summary?.info.marketName }}</span>
+            </div>
+            <div class="row">
+                <span class="label">APERTURA</span>
+                <span class="value">{{ summary?.price.openPrice | number:'1.2-2':'es-CL' }}</span>
+            </div>
+            <div class="row">
+                <span class="label">CIERRE ANTERIOR</span>
+                <span class="value">{{ summary?.price.closePrice | number:'1.2-2':'es-CL' }}</span>
+            </div>
+            <div class="row">
+                <span class="label">MÁXIMO DIARIO</span>
+                <span class="value">{{ summary?.price.maxDay | number:'1.2-2':'es-CL' }}</span>
+            </div>
+            <div class="row">
+                <span class="label">MÍNIMO DIARIO</span>
+                <span class="value">{{ summary?.price.minDay | number:'1.2-2':'es-CL' }}</span>
+            </div>
+            <div class="row">
+                <span class="label">MÁXIMO 52 SEMANAS</span>
+                <span class="value">{{ summary?.price.max52W | number:'1.2-2':'es-CL' }}</span>
+            </div>
+            <div class="row">
+                <span class="label">MÍNIMO 52 SEMANAS</span>
+                <span class="value">{{ summary?.price.min52W | number:'1.2-2':'es-CL' }}</span>
+            </div><br>
+            <div class="row">
+                <span class="label">Variación**</span>
+                <span class="value">%</span>
+            </div>
+            <hr>
+            <div class="row" [ngClass]="getPercentageClass(summary.price.pct30D)">
+                <span class="label">1 MES</span>
+                <span class="value">{{ formatPercentage(summary.price.pct30D) }}</span>
+            </div>
+            <div class="row" [ngClass]="getPercentageClass(summary.price.pctRelW52)">
+                <span class="label">1 AÑO</span>
+                <span class="value">{{ formatPercentage(summary.price.pctRelW52) }}</span>
+            </div>
+            <div class="row" [ngClass]="getPercentageClass(summary.price.pctRelCY)">
+                <span class="label">AÑO A LA FECHA</span>
+                <span class="value">{{ formatPercentage(summary.price.pctRelCY) }}</span>
+            </div>
+
+        </div>

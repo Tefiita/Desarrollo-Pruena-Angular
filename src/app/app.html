@@ -1,0 +1,14 @@
+<app-search-bar (searchChanged)="onSearch($event)"></app-search-bar><br>
+
+<app-header [codeInstrument]="currentInstrument()"></app-header>
+
+<div class="chart-summary-container">
+  <app-chart [codeInstrument]="currentInstrument()"></app-chart>
+  <app-summary [codeInstrument]="currentInstrument()"></app-summary>
+</div>
+
+<app-tab></app-tab><hr>
+
+<app-instrument-list></app-instrument-list>
+
+

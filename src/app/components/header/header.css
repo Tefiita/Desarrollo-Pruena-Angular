@@ -1,0 +1,36 @@
+.header {
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0 0 6px 0;
+}
+
+.indice {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.price-info {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.price-current {
+  font-weight: bold;
+}
+
+.positive {
+  color: green;
+  font-weight: bold;
+}
+
+.negative {
+  color: red;
+  font-weight: bold;
+}

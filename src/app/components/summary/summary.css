@@ -1,0 +1,76 @@
+.summary-container {
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 15px;
+  margin: 0;
+  max-width: 280px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 10px;
+}
+
+.tab {
+  cursor: pointer;
+  color: white;
+  font-weight: normal;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.tab.active {
+  font-weight: bold;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: #1e88e5;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+  padding: 2px 0;
+}
+
+.label {
+  text-align: left;
+}
+
+.value {
+  text-align: right;
+}
+
+.full-width {
+  width: 100%;
+  text-align: center;
+}
+
+.positive .value {
+  color: #4caf50;
+}
+
+.negative .value {
+  color: #f44336;
+}

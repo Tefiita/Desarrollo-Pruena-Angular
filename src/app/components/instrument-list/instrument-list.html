@@ -1,0 +1,71 @@
+<div class="table-container">
+  <div class="table-half">
+    <p-table [value]="leftInstruments" [paginator]="false" [rows]="10" [responsiveLayout]="'scroll'" [styleClass]="'small-table'">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Último*</th>
+          <th>Monto (MM)</th>
+          <th>Var. día</th>
+          <th>Var. 30d**</th>
+          <th>Año Actual</th>
+          <th>12 Meses</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-instrument>
+        <tr>
+          <td>{{ instrument.codeInstrument }}</td>
+          <td>{{ instrument.lastPrice | number:'1.2-2' }}</td>
+          <td>{{ instrument.volumeMoney | number }}%</td>
+          <td [ngClass]="getClass(instrument.performanceRelative)">
+            {{ formatValue(instrument.performanceRelative) }}%
+          </td>
+          <td [ngClass]="getClass(instrument.pct30D)">
+            {{ formatValue(instrument.pct30D) }}%
+          </td>
+          <td [ngClass]="getClass(instrument.pctCY)">
+            {{ formatValue(instrument.pctCY) }}%
+          </td>
+          <td [ngClass]="getClass(instrument.pct1Y)">
+            {{ formatValue(instrument.pct1Y) }}%
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="table-half">
+    <p-table [value]="rightInstruments" [paginator]="false" [rows]="10" [responsiveLayout]="'scroll'" [styleClass]="'small-table'">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Último*</th>
+          <th>Monto (MM)</th>
+          <th>Var. día</th>
+          <th>Var. 30d**</th>
+          <th>Año Actual</th>
+          <th>12 Meses</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-instrument>
+        <tr>
+          <td>{{ instrument.codeInstrument }}</td>
+          <td>{{ instrument.lastPrice | number:'1.2-2' }}</td>
+          <td>{{ instrument.volumeMoney | number }}</td>
+          <td [ngClass]="getClass(instrument.performanceRelative)">
+            {{ formatValue(instrument.performanceRelative) }}%
+          </td>
+          <td [ngClass]="getClass(instrument.pct30D)">
+            {{ formatValue(instrument.pct30D) }}%
+          </td>
+          <td [ngClass]="getClass(instrument.pctCY)">
+            {{ formatValue(instrument.pctCY) }}%
+          </td>
+          <td [ngClass]="getClass(instrument.pct1Y)">
+            {{ formatValue(instrument.pct1Y) }}%
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

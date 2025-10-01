@@ -1,0 +1,27 @@
+<div *ngIf="summary" class="header">
+  <h2>{{ summary.info.shortName }}, {{ summary.info.countryName }}</h2>
+
+  <div class="indice">
+    Índice
+  </div>
+
+  <hr>
+
+  <div class="price-info">
+    <span class="price-current">
+      Valor actual: {{ summary.price.lastPrice | number:'1.2-2' }}
+    </span>
+    <span class="price-variation">
+      Var.% Actual: 
+      <span [ngClass]="getClass(summary.price.tend)">
+        {{ summary.price.performanceRelative | number:'1.2-2' }}%
+      </span>
+      | Var. Puntos Actual: 
+      <span [ngClass]="getClass(summary.price.tend)">
+        {{ summary.price.performanceAbsolute | number:'1.2-2' }}
+      </span>
+    </span>
+  </div>
+
+  <hr>
+</div>

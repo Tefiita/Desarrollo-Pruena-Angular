@@ -1,0 +1,33 @@
+.table-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; 
+  padding: 2px 1px;
+}
+
+.table-half {
+  flex: 1 1 45%; 
+  min-width: 300px; 
+}
+
+.small-table {
+  font-size: 0.75rem;
+  table-layout: auto; /* Las columnas se ajustan al contenido */
+  width: auto;        /* Ajuste al contenido */
+}
+
+.positive { color: #4caf50; }
+.negative { color: #f44336; }
+
+p-table th, p-table td {
+  padding: 0.2rem 0.4rem; /* Poco padding para columnas compactas */
+  white-space: nowrap;     /* Evita que el contenido se rompa en varias líneas */
+}
+
+p-table td:first-child, p-table th:first-child {
+  text-align: left;
+}
+
+p-table td:not(:first-child) {
+  text-align: right;
+}

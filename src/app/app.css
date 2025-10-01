@@ -1,0 +1,32 @@
+.componentes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; 
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+.chart-summary-container {
+  display: flex;
+  gap: 20px;         
+  align-items: flex-start; 
+  font-family: Arial, sans-serif;
+}
+
+.chart-summary-container app-chart {
+  flex: 2; 
+}
+
+.chart-summary-container app-summary {
+  flex: 1;
+}
